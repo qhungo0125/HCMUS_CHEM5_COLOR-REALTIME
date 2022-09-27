@@ -4,9 +4,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+     <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #container 
+        {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding:0;
+            background-image: linear-gradient(to right,#ff0000,#ffff00 );
+        }
+        #header{
+            padding-top: 30px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #header h1{
+            margin: 0;
+            /* display: inline; */
+            font-size: 60px;
+            letter-spacing: 30px;
+            opacity: 0.5;
+        }
+
+        #colorPicker{
+            text-align: center;
+            margin-bottom: 20px;
+
+        }
+
+        #colorPicker input{
+            margin: 20px;
+        }
+
+        #sub-header{
+            opacity: 0.5;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 20px;
+        }
+    </style>
 </head>
 <body>
-    heloooooooo
+
+    <div id="container">
+        <div id="header">
+            <h1>background</h1>
+            <h1>generator</h1>
+        </div>
+    
+        <div id="colorPicker">
+            <input type="color" id="color1" name="color1" oninput="handleClickColorPicker()" value="#ff0000">
+            <input type="color" id="color2" name="color2" oninput="handleClickColorPicker()" value="#ffff00">
+        </div>
+    
+        <div id="sub-header">
+            <h3>current css background</h3>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous">
+            
+    </script>
+    <script>
+        function handleClickColorPicker(){
+            let leftColor = $('#color1').val();
+            let rightColor =$('#color2').val();
+            let container = $('#container');
+            container.css("background-image", `linear-gradient(to right, ${leftColor} , ${rightColor})`)
+        }
+    </script>
+
 </body>
 </html>
